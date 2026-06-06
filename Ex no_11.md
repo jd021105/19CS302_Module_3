@@ -1,59 +1,72 @@
 
-# EX 11 C Program to convert a given decimal value to binary using function without arguments with return type.
+# EX 12 C program to check whether the given number is prime or not using function without return type and with arguments.
 ## DATE:
 ## AIM:
-To write a C Program to convert a given decimal value to binary using function without arguments with return type.
+To write a C program to check whether the given number is prime or not using function without return type and with arguments.
 
 ## Algorithm
-1.Start the program.
+1.Start the program and define a function with arguments and no return type.
 
-2.Create a function with no arguments that reads a decimal number from the user.
+2.Read a number from the user in main().
 
-3.Inside the function, convert the number to binary using a loop and store the binary digits.
+3.Pass the number as an argument to the function.
 
-4.Return 0 from the function after displaying the binary equivalent.
+4.In the function, check if the number is divisible by any number from 2 to n/2.
 
-5.Call the function from main() and end the program.
-
+5.Print whether the number is prime or not from the function.
 
 ## Program:
 ```
 /*
-Program to C Program to convert a given decimal value to binary using function without arguments with return type.
+C program to check whether the given number is prime or not using function without return type and with arguments.
 */
 #include <stdio.h>
 
-int convertToBinary() {
-    int num, binary[32], i = 0;
-    scanf("%d", &num);
+void checkPrime(int num)
+{
+    int i, isPrime = 1;
 
-    if(num == 0) {
-        printf("Binary: 0\n");
-        return 0;
+    if(num <= 1)
+    {
+        printf("%d is not a prime number.\n", num);
+        return;
     }
 
-    while(num > 0) {
-        binary[i++] = num % 2;
-        num /= 2;
+    for(i = 2; i <= num / 2; i++)
+    {
+        if(num % i == 0)
+        {
+            isPrime = 0;
+            break;
+        }
     }
 
-    printf("Binary: ");
-    for(int j = i - 1; j >= 0; j--) {
-        printf("%d", binary[j]);
+    if(isPrime)
+    {
+        printf("%d is a prime number.\n", num);
     }
-    printf("\n");
-
-    return 0;
+    else
+    {
+        printf("%d is not a prime number.\n", num);
+    }
 }
 
-int main() {
-    convertToBinary();
+int main()
+{
+    int number;
+
+    printf("Enter a number: ");
+    scanf("%d", &number);
+
+    checkPrime(number);
+
     return 0;
 }
 ```
 
 ## Output:
-<img width="381" height="165" alt="image" src="https://github.com/user-attachments/assets/dbe3efb4-4b4d-4623-ad19-b1d9daec4306" />
+<img width="379" height="205" alt="image" src="https://github.com/user-attachments/assets/08cfe062-186a-4d38-a7e6-fd2e9799ea1b" />
+
 
 
 
